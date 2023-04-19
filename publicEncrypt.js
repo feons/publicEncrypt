@@ -41,7 +41,7 @@ module.exports = function publicEncrypt (publicKey, msg, reverse) {
 function oaep (key, msg) {
   var k = key.modulus.byteLength()
   var mLen = msg.length
-  var iHash = createHash('sha1').update(Buffer.alloc(0)).digest()
+  var iHash = createHash('sha256').update(Buffer.alloc(0)).digest()
   var hLen = iHash.length
   var hLen2 = 2 * hLen
   if (mLen > k - hLen2 - 2) {
